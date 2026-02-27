@@ -72,12 +72,14 @@ jobs:
         path: build/linux
         if-no-files-found: warn
         overwrite: false
-        
+    - name: Create a zip file
+      run: zip -r linux-release-artifact.zip build/linux
+       
     - name: Upload binaries to release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ env.BUILD_VERSION }}
-        files: linux-build-artifact.zip # Supports globs
+        files: linux-release-artifact.zip # Supports globs
 
 
   build-windows:
@@ -112,8 +114,12 @@ jobs:
         path: build/windows
         if-no-files-found: warn
         overwrite: false
+    
+    - name: Create a zip file
+      run: zip -r windows-release-artifact.zip build/windows
+    
     - name: Upload binaries to release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ env.BUILD_VERSION }}
-        files: windows-build-artifact.zip # Supports globs
+        files: windows-release-artifact.zip # Supports globs
