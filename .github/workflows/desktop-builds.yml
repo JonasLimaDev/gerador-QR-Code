@@ -77,7 +77,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ env.BUILD_VERSION }}
-        files: build/linux/linux-build-artifact.zip # Supports globs
+        files: linux-build-artifact.zip # Supports globs
 
 
   build-windows:
@@ -116,4 +116,4 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ env.BUILD_VERSION }}
-        files: build/windows/windows-build-artifact.zip # Supports globs
+        files: windows-build-artifact.zip # Supports globs
