@@ -116,8 +116,9 @@ jobs:
         overwrite: false
     
     - name: Create a zip file
-      run: zip -r windows-release-artifact.zip build/windows
-    
+      run: Compress-Archive -Path '.\build/windows\*' -DestinationPath '.\windows-release-artifact.zip'
+      shell: powershell
+  
     - name: Upload binaries to release
       uses: softprops/action-gh-release@v1
       with:
