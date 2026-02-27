@@ -72,6 +72,11 @@ jobs:
         path: build/linux
         if-no-files-found: warn
         overwrite: false
+    - name: Upload binaries to release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/linux/linux-build-artifact.zip # Supports globs
+
 
   build-windows:
     runs-on: windows-latest
@@ -105,3 +110,7 @@ jobs:
         path: build/windows
         if-no-files-found: warn
         overwrite: false
+    - name: Upload binaries to release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/windows/windows-build-artifact.zip # Supports globs
